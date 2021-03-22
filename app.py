@@ -21,26 +21,26 @@ def home():
 
 
 
-@app.route("/predict", methods=["POST"])
-def predict():
+#@app.route("/predict", methods=["POST"])
+#def predict():
 
 	# check if file is not in the requst
-	if 'file' not in request.files:
-		return "Error"
+	#if 'file' not in request.files:
+		#return "Error"
 
 	# Save File
-	file = request.files['file']
-	file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-	file.save(file_path)
+	#file = request.files['file']
+	#file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+	#file.save(file_path)
 
 	# read the image and convert it to grey scale
-	img = Image.open(file_path)
-	my_img_resized = np.array(img.resize((28,28)).convert('L'))
+	#img = Image.open(file_path)
+	#my_img_resized = np.array(img.resize((28,28)).convert('L'))
 
 	# Predict
-	prediction = model.predict(my_img_resized.reshape(-1, 28*28)/255)
+	#prediction = model.predict(my_img_resized.reshape(-1, 28*28)/255)
 
-	return render_template("index.html", digit=prediction[0])	
+	#return render_template("index.html", digit=prediction[0])	
 
 
 
